@@ -6,7 +6,7 @@
 /*   By: willda-s <willda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 15:53:31 by willda-s          #+#    #+#             */
-/*   Updated: 2026/03/01 17:12:16 by willda-s         ###   ########.fr       */
+/*   Updated: 2026/03/01 18:23:21 by willda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <exception>
 # include <iostream>
 # include <string>
+
+class Form;
 
 class Bureaucrat
 {
@@ -33,13 +35,14 @@ class Bureaucrat
 	class GradeTooHighException : public std::exception
 	{
 		public:
-			const char *what() const throw();
+		const char *what() const throw();
 	};
 	class GradeTooLowException : public std::exception
 	{
 		public:
-			const char *what() const throw();
+		const char *what() const throw();
 	};
+	void signForm(const Form &f);
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &other);
