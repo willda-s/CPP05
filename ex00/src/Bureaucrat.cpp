@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: willda-s <willda-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: williamguerreiro <williamguerreiro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 16:45:07 by willda-s          #+#    #+#             */
-/*   Updated: 2026/03/01 17:41:46 by willda-s         ###   ########.fr       */
+/*   Updated: 2026/03/02 01:30:13 by williamguer      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(size_t grade, std::string name): _name(name), _grade(grade) 
+Bureaucrat::Bureaucrat(int grade, std::string name): _name(name), _grade(grade) 
 {
 	if (grade < 1)
 		throw GradeTooHighException();
@@ -30,7 +30,7 @@ std::string Bureaucrat::getName() const
 	return(this->_name);
 }
 
-size_t Bureaucrat::getGrade() const
+int Bureaucrat::getGrade() const
 {
 	return(this->_grade);
 }

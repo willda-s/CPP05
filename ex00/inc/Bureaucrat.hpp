@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: willda-s <willda-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: williamguerreiro <williamguerreiro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 15:53:31 by willda-s          #+#    #+#             */
-/*   Updated: 2026/03/01 17:12:16 by willda-s         ###   ########.fr       */
+/*   Updated: 2026/03/02 01:30:06 by williamguer      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ class Bureaucrat
 {
   private:
 	const std::string _name;
-	size_t _grade;
+	int _grade;
 
   public:
-	Bureaucrat(size_t grade, std::string name);
+	Bureaucrat(int grade, std::string name);
 	~Bureaucrat();
 	std::string getName() const;
-	size_t getGrade() const;
+	int getGrade() const;
 	void IncrementGrade();
 	void DecrementGrade();
 	class GradeTooHighException : public std::exception
