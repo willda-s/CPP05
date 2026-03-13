@@ -6,7 +6,7 @@
 #    By: williamguerreiro <williamguerreiro@stud    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/21 18:25:00 by willda-s          #+#    #+#              #
-#    Updated: 2026/03/11 21:36:41 by williamguer      ###   ########.fr        #
+#    Updated: 2026/03/13 09:09:23 by williamguer      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,9 @@ vpath %.i inc
 #------------------------------------------------#
 #					FILES						 #
 #------------------------------------------------#
-NAME		= Form2.0
-INCLUDES	= ShrubberyCreationForm.hpp Bureaucrat.hpp AForm.hpp  PresidentialPardonForm.hpp RobotomyRequestForm.hpp
-SRC_FILES	= ShrubberyCreationForm Bureaucrat main AForm PresidentialPardonForm RobotomyRequestForm
+NAME		= Intern
+INCLUDES	= ShrubberyCreationForm.hpp Bureaucrat.hpp AForm.hpp  PresidentialPardonForm.hpp RobotomyRequestForm.hpp Intern.hpp
+SRC_FILES	= ShrubberyCreationForm Bureaucrat main AForm PresidentialPardonForm RobotomyRequestForm Intern
 
 #------------------------------------------------#
 #					DIRECTORY					 #

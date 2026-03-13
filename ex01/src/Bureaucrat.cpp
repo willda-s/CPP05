@@ -6,12 +6,17 @@
 /*   By: williamguerreiro <williamguerreiro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 16:45:07 by willda-s          #+#    #+#             */
-/*   Updated: 2026/03/02 01:22:23 by williamguer      ###   ########.fr       */
+/*   Updated: 2026/03/11 21:33:22 by williamguer      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+
+Bureaucrat::Bureaucrat() : _name("default"), _grade(150)
+{
+	std::cout << "Bureaucrat default constructed." << std::endl;
+}
 
 Bureaucrat::Bureaucrat(int grade, std::string name): _name(name), _grade(grade) 
 {
@@ -21,6 +26,21 @@ Bureaucrat::Bureaucrat(int grade, std::string name): _name(name), _grade(grade)
 		throw GradeTooLowException();
 	std::cout << "Bureaucrat " << this->_name << " constructed." << std::endl;
 }
+
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade)
+{
+	std::cout << "Bureaucrat " << this->_name << " copy constructed." << std::endl;
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
+{
+	if (this != &other)
+	{
+		this->_grade = other._grade;
+	}
+	return *this;
+}
+
 Bureaucrat::~Bureaucrat()
 {
 	std::cout << "Bureaucrat " << this->_name << " destructed." << std::endl;

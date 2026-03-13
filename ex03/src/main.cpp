@@ -6,7 +6,7 @@
 /*   By: williamguerreiro <williamguerreiro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 15:52:55 by willda-s          #+#    #+#             */
-/*   Updated: 2026/03/13 09:31:23 by williamguer      ###   ########.fr       */
+/*   Updated: 2026/03/13 09:40:33 by williamguer      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 static void separator(const std::string &title)
 {
@@ -89,6 +90,17 @@ int main()
     std::cout << copy;
     bob.executeForm(original);
     bob.executeForm(copy);
+
+    separator("Test 10 : Intern creates forms");
+    Intern someRandomIntern;
+    AForm* rrf;
+    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+    if (rrf)
+    {
+        bob.signForm(*rrf);
+        bob.executeForm(*rrf);
+        delete rrf;
+    }
 
     return 0;
 }

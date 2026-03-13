@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: williamguerreiro <williamguerreiro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,31 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form() : _name("default"), _gradeSign(150), _gradeExecute(150)
+AForm::AForm() : _name("default"), _gradeSign(150), _gradeExecute(150)
 {
 	this->_boolSigned = false;
-	std::cout << "Form default constructed." << std::endl;
+	std::cout << "AForm default constructed." << std::endl;
 }
 
-Form::Form(std::string name, int gradeSign, int gradeExec) : _name(name), _gradeSign(gradeSign), _gradeExecute(gradeExec)
+AForm::AForm(std::string name, int gradeSign, int gradeExec) : _name(name), _gradeSign(gradeSign), _gradeExecute(gradeExec)
 {
 	this->_boolSigned = false;
 	if (gradeSign < 1 || gradeExec < 1)
 		throw GradeTooHighException();
 	if (gradeSign > 150 || gradeExec > 150)
 		throw GradeTooLowException();
-	std::cout << "Form " << this->_name << " constructed." << std::endl;
 }
 
-Form::Form(const Form &other) : _name(other._name), _gradeSign(other._gradeSign), _gradeExecute(other._gradeExecute)
+AForm::AForm(const AForm &other) : _name(other._name), _gradeSign(other._gradeSign), _gradeExecute(other._gradeExecute)
 {
 	this->_boolSigned = other._boolSigned;
-	std::cout << "Form " << this->_name << " copy constructed." << std::endl;
+	std::cout << "AForm " << this->_name << " copy constructed." << std::endl;
 }
 
-Form &Form::operator=(const Form &other)
+AForm &AForm::operator=(const AForm &other)
 {
 	if (this != &other)
 	{
@@ -43,47 +42,52 @@ Form &Form::operator=(const Form &other)
 	return *this;
 }
 
-Form::~Form()
+AForm::~AForm()
 {
-	std::cout << "Form " << this->_name << " destructed." << std::endl;
+	std::cout << "AForm " << this->_name << " destructed." << std::endl;
 }
 
-std::string Form::getName() const
+std::string AForm::getName() const
 {
 	return(this->_name);
 }
 
-int Form::getGradeExecute() const
+int AForm::getGradeExecute() const
 {
 	return(this->_gradeExecute);
 }
 
-int Form::getGradeSign() const
+int AForm::getGradeSign() const
 {
 	return(this->_gradeSign);
 }
 
-bool Form::getBoolSigned() const
+bool AForm::getBoolSigned() const
 {
 	return(this->_boolSigned);
 }
 
-const char *Form::GradeTooHighException::what() const throw()
+const char *AForm::GradeTooHighException::what() const throw()
 {
-	return "Form Grade is too high!";
+	return "AForm Grade is too high!";
 }
 
-const char *Form::GradeTooLowException::what() const throw()
+const char *AForm::GradeTooLowException::what() const throw()
 {
-	return "Form Grade is too low!";
+	return "AForm Grade is too low!";
 }
 
-const char *Form::FormAlreadySignedException::what() const throw()
+const char *AForm::FormNotSignedException::what() const throw()
 {
-	return "Form is already signed!";
+	return "AForm is not signed!";
 }
 
-void Form::beSigned(const Bureaucrat &b)
+const char *AForm::FormAlreadySignedException::what() const throw()
+{
+	return "AForm is already signed!";
+}
+
+void AForm::beSigned(const Bureaucrat &b)
 {
 	if (this->_boolSigned)
 		throw FormAlreadySignedException();
@@ -95,7 +99,7 @@ void Form::beSigned(const Bureaucrat &b)
 		throw GradeTooLowException();
 }
 
-std::ostream &operator<<(std::ostream &out, const Form &other)
+std::ostream &operator<<(std::ostream &out, const AForm &other)
 {
     out << other.getName() << ", grade required to sign it is " << other.getGradeSign() << "." << std::endl;
 	out << other.getName() << ", grade required to execute it is " << other.getGradeExecute() << "." << std::endl;
