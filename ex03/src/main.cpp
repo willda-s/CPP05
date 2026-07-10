@@ -6,7 +6,7 @@
 /*   By: williamguerreiro <williamguerreiro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 15:52:55 by willda-s          #+#    #+#             */
-/*   Updated: 2026/03/13 09:40:33 by williamguer      ###   ########.fr       */
+/*   Updated: 2026/07/10 16:11:31 by williamguer      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static void separator(const std::string &title)
 
 int main()
 {
+    std::srand(std::time(NULL));
     separator("Test 1 : Invalid grade");
     try { Bureaucrat bad(0, "TooHigh"); }
     catch (std::exception &e) { std::cout << "Exception: " << e.what() << std::endl; }
